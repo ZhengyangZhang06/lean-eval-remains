@@ -1,0 +1,24 @@
+{
+  "id": "sphere_theorem_differentiable",
+  "title": "Differentiable sphere theorem (Brendle–Schoen)",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/sphere_theorem_differentiable/",
+  "stable_url": "problems/sphere_theorem_differentiable/",
+  "sort_index": 273,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "max-gp-gpt-6",
+    "near-ai-w-deepseek-v4"
+  ],
+  "other_model_labels_legacy": [
+    "NEAR AI w/ DeepSeek V4",
+    "max gp (GPT-6)"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/sphere_theorem_differentiable/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}
