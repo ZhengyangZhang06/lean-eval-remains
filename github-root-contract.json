@@ -1,0 +1,5 @@
+{
+  "name": "Submission.instIsManifoldS6",
+  "statement": "letI := Submission.instChartedSpaceS6; IsManifold 𝓘(ℂ, Fin 3 → ℂ) ω (Metric.sphere (0 : EuclideanSpace ℝ (Fin 7)) 1)",
+  "scope_note": "Both the charted-space data definition and the manifold proof are mandatory. This benchmark describes an open mathematical problem. Do not report a proposed construction or a comparator failure as a solved problem."
+}

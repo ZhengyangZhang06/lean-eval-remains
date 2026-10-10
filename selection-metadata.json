@@ -1,0 +1,24 @@
+{
+  "id": "hopf_s6_complex_structure",
+  "title": "The Hopf problem: a complex structure on the 6-sphere",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [
+    "v2"
+  ],
+  "url": "problems/hopf_s6_complex_structure/",
+  "stable_url": "problems/hopf_s6_complex_structure/",
+  "sort_index": 159,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "max-gp-gpt-6",
+    "trureturing"
+  ],
+  "other_model_labels_legacy": [
+    "max gp (GPT-6)",
+    "trureturing"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/hopf_s6_complex_structure/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}
