@@ -1,9 +1,9 @@
 {
   "problem": "smooth_knot_has_quadrisecant",
   "run": "20261010T041317Z-28fd4c2c6c",
-  "phase": "Preparing",
+  "phase": "In progress",
   "verified": 0,
-  "total": 0,
-  "updated_at": "2026-10-10T04:13:19Z",
+  "total": 1,
+  "updated_at": "2026-10-10T04:23:26Z",
   "path": "theorem-status/smooth-knot-has-quadrisecant-3681e4548f/20261010t041317z-28fd4c2c6c"
 }
