@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "problem": "gorenstein_walter",
+  "run": "20261010T041037Z-796e33aba6",
+  "repository": "humanfia/lean-eval-remains",
+  "statement": "∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) → ∀ (P : Sylow 2 G), (∃ n : ℕ, Nonempty ((P : Subgroup G) ≃* DihedralGroup n)) → Nonempty (G ≃* alternatingGroup (Fin 7)) ∨ ∃ p k : ℕ, ∃ _hp : Fact p.Prime, Odd p ∧ 5 ≤ p ^ k ∧ Nonempty (G ≃* PSL(2, GaloisField p k))",
+  "updated_at": "2026-10-10T04:10:40Z",
+  "lifecycle": "running",
+  "phase": "Preparing",
+  "graph_ok": true,
+  "total": 0,
+  "verified": 0,
+  "accepted": 0,
+  "pull_requests": 0,
+  "nodes": [],
+  "stale_after_seconds": 1800
+}
