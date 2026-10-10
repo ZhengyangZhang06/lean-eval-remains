@@ -4,7 +4,7 @@
   "run": "20261010T040837Z-a1e0fd6000",
   "repository": "humanfia/lean-eval-remains",
   "statement": "∀ (𝕜 : Type) [Field 𝕜] [NumberField 𝕜], ¬ MotivicInvariants.GenByPseudoRegularizable 𝕜 3",
-  "updated_at": "2026-10-10T04:29:01Z",
+  "updated_at": "2026-10-10T04:39:15Z",
   "lifecycle": "running",
   "phase": "In progress",
   "graph_ok": true,
