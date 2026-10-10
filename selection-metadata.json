@@ -1,0 +1,24 @@
+{
+  "id": "annals_bose_gases",
+  "title": "The energy of dilute Bose gases",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [
+    "annals"
+  ],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/annals_bose_gases/",
+  "stable_url": "problems/annals_bose_gases/",
+  "sort_index": 7,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "axiom-prover-axiom-math"
+  ],
+  "other_model_labels_legacy": [
+    "Axiom Prover (Axiom Math)"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/annals_bose_gases/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}

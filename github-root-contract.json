@@ -1,0 +1,4 @@
+{
+  "name": "Submission.BoseGases.theorem_1_2",
+  "statement": "∀ (v : EuclideanSpace ℝ (Fin 3) → ℝ), (¬ v =ᵐ[MeasureTheory.volume] 0) → 0 ≤ v → BoseGases.IsRadial v → MeasureTheory.MemLp v 1 → ∀ {R : ℝ}, 0 < R → tsupport v ⊆ Metric.ball 0 R → 0 < Submission.BoseGases.η ∧ ∀ᶠ ρ in 𝓝[>] 0, BoseGases.e ρ v ≥ 4 * Real.pi * ρ ^ 2 * BoseGases.a v * (1 + (128 / (15 * Real.sqrt Real.pi)) * Real.sqrt (ρ * BoseGases.a v ^ 3) - Submission.BoseGases.𝓒 (BoseGases.𝓡 v) (R / BoseGases.a v) * (ρ * BoseGases.a v ^ 3) ^ (1 / 2 + Submission.BoseGases.η))"
+}
