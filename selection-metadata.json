@@ -1,0 +1,22 @@
+{
+  "id": "mandelbar_not_path_connected",
+  "title": "Mandelbar (tricorn) is not path-connected (Hubbard–Schleicher)",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/mandelbar_not_path_connected/",
+  "stable_url": "problems/mandelbar_not_path_connected/",
+  "sort_index": 192,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "near-ai-w-deepseek-v4"
+  ],
+  "other_model_labels_legacy": [
+    "NEAR AI w/ DeepSeek V4"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/mandelbar_not_path_connected/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}

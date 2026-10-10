@@ -1,0 +1,4 @@
+{
+  "name": "Submission.mandelbar_not_path_connected",
+  "statement": "¬ IsPathConnected LeanEval.ComplexAnalysis.Mandelbar"
+}
