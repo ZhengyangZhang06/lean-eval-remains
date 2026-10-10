@@ -4,7 +4,7 @@
   "run": "20261010T040956Z-93cb461f39",
   "repository": "humanfia/lean-eval-remains",
   "statement": "∀ {G : Type*} [Group G] [Finite G], Odd (Nat.card G) → Group.IsSolvable G",
-  "updated_at": "2026-10-10T04:20:04Z",
+  "updated_at": "2026-10-10T04:30:19Z",
   "lifecycle": "running",
   "phase": "In progress",
   "graph_ok": true,
