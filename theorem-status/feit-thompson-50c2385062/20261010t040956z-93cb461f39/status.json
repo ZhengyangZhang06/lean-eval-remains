@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "problem": "feit_thompson",
+  "run": "20261010T040956Z-93cb461f39",
+  "repository": "humanfia/lean-eval-remains",
+  "statement": "∀ {G : Type*} [Group G] [Finite G], Odd (Nat.card G) → Group.IsSolvable G",
+  "updated_at": "2026-10-10T04:09:58Z",
+  "lifecycle": "running",
+  "phase": "Preparing",
+  "graph_ok": true,
+  "total": 0,
+  "verified": 0,
+  "accepted": 0,
+  "pull_requests": 0,
+  "nodes": [],
+  "stale_after_seconds": 1800
+}
