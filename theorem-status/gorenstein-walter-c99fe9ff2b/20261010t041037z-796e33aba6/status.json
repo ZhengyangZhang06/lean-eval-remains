@@ -4,7 +4,7 @@
   "run": "20261010T041037Z-796e33aba6",
   "repository": "humanfia/lean-eval-remains",
   "statement": "∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) → ∀ (P : Sylow 2 G), (∃ n : ℕ, Nonempty ((P : Subgroup G) ≃* DihedralGroup n)) → Nonempty (G ≃* alternatingGroup (Fin 7)) ∨ ∃ p k : ℕ, ∃ _hp : Fact p.Prime, Odd p ∧ 5 ≤ p ^ k ∧ Nonempty (G ≃* PSL(2, GaloisField p k))",
-  "updated_at": "2026-10-10T04:20:46Z",
+  "updated_at": "2026-10-10T04:31:00Z",
   "lifecycle": "running",
   "phase": "In progress",
   "graph_ok": true,
