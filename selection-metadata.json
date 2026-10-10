@@ -1,0 +1,26 @@
+{
+  "id": "annals_motivic_invariants",
+  "title": "Motivic invariants of birational maps",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [
+    "annals"
+  ],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/annals_motivic_invariants/",
+  "stable_url": "problems/annals_motivic_invariants/",
+  "sort_index": 32,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "axiom-prover-axiom-math",
+    "max-gp-gpt-6"
+  ],
+  "other_model_labels_legacy": [
+    "Axiom Prover (Axiom Math)",
+    "max gp (GPT-6)"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/annals_motivic_invariants/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}

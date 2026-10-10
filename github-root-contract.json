@@ -1,0 +1,5 @@
+{
+  "name": "Submission.MotivicInvariants.theorem_1_2_1_a",
+  "statement": "∀ (𝕜 : Type) [Field 𝕜] [NumberField 𝕜], ¬ MotivicInvariants.GenByPseudoRegularizable 𝕜 3",
+  "scope_note": "This publication anchor is the first of SIX frozen required theorems, not the whole benchmark. The root natural proof and final solution must cover all six entries of config.json. Track the other five original named theorems through reviewed child issues and dedicated solution PRs. The unchanged official root comparator checks all six; none can be omitted. Root completion requires every original target plus integrated child records."
+}
