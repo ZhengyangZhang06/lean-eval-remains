@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-10",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc4",
+  "lean_release_url": "https://github.com/leanprover/lean4/releases/tag/v4.35.0-rc4",
+  "mathlib_revision": "a02a63c2100af866343c74550041885f8f39f099",
+  "mathlib_revision_date": "2026-10-09T20:19:12Z",
+  "mathlib_url": "https://github.com/leanprover-community/mathlib4/commit/a02a63c2100af866343c74550041885f8f39f099",
+  "policy": "Latest Mathlib master as checked, paired with the exact Lean release candidate required by that revision. Keep this pair pinned during the experiment.",
+  "original_benchmark_lean": "leanprover/lean4:v4.35.0-rc3",
+  "original_benchmark_mathlib": "5e0c4e5239cb0a2d86d68a884bf52cfd963fce22",
+  "problem_contract_source_changes": false,
+  "compatibility_build_status": "pending"
+}
