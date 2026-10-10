@@ -1,0 +1,4 @@
+{
+  "name": "Submission.wang_zahl_kakeya_dimH",
+  "statement": "∀ {K : Set LeanEval.Analysis.WangZahlKakeya.Space}, LeanEval.Analysis.WangZahlKakeya.IsKakeya K → MeasureTheory.dimH K = 3"
+}

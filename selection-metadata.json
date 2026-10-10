@@ -1,0 +1,22 @@
+{
+  "id": "wang_zahl_kakeya_dimH",
+  "title": "Wang-Zahl: the three-dimensional Kakeya conjecture",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/wang_zahl_kakeya_dimH/",
+  "stable_url": "problems/wang_zahl_kakeya_dimH/",
+  "sort_index": 299,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "max-gp-gpt-6"
+  ],
+  "other_model_labels_legacy": [
+    "max gp (GPT-6)"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/wang_zahl_kakeya_dimH/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}
