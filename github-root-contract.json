@@ -1,0 +1,4 @@
+{
+  "name": "Submission.feit_thompson",
+  "statement": "∀ {G : Type*} [Group G] [Finite G], Odd (Nat.card G) → Group.IsSolvable G"
+}

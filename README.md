@@ -1,23 +1,31 @@
-# LeanEval remaining-problems experiment
+# `feit_thompson`
 
-Eleven benchmark problems, using `github-theorem-prover` from `humanfia/math-lean-flow`, branch `feature/humanize-api-update`.
+Feit–Thompson odd-order theorem
 
-[Live proving status](https://humanfia.github.io/lean-eval-remains/theorem-status/index.html) (available after the first successful Pages deployment).
+- Problem ID: `feit_thompson`
+- Group: `formalization-evaluation`
+- Status: `archived`
+- Visible: yes
+- Statement Revision: 1
+- Tags: none
+- Submitter: Kim Morrison
+- Notes: Every finite group of odd order is solvable. W. Feit and J. G. Thompson, Pacific J. Math. 13 (1963), 775-1029. A 255-page paper that opened the path to the Classification of Finite Simple Groups; Thompson received the Fields Medal in 1970 in part for this work. Coq formalization by Gonthier et al. 2012 (~170 000 lines); no Lean port. Stated with zero new definitions on top of mathlib (IsSolvable, Odd, Nat.card, Group, Finite). Honorable-mention entry on Freek Wiedijk's 'Formalizing 100 Theorems' page (alongside the Classification of Finite Simple Groups itself).
+- Source: W. Feit and J. G. Thompson, Solvability of groups of odd order, Pacific J. Math. 13 (1963), 775-1029. Coq formalization: G. Gonthier et al., A Machine-Checked Proof of the Odd Order Theorem, ITP 2013 (https://hal.inria.fr/hal-00816699). Listed as a named honorable mention on https://www.cs.ru.nl/~freek/100/.
+- Informal solution: The proof proceeds by contradiction: assume G is a minimal counterexample, a non-solvable group of minimal odd order. (i) Generic case: by Hall-Wielandt and the Feit-Hall theorem on solvable signalizer functors, G has a unique conjugacy class of maximal subgroups containing every Sylow normalizer; rule out via character-theoretic identities (Suzuki's Brauer table machinery). (ii) Uniqueness case: G has a single 'large' maximal subgroup M whose structure is heavily constrained; case analysis on |M|/|G| and the action of M on its Frobenius-like complements gives the contradiction. (iii) The 'CN' (centralizer-normalizer) and 'CIT' (centralizer-of-involution-trivial) case analyses use the Frobenius theorem on Frobenius groups (whose only known proof uses character theory) to constrain centralizer structure. The whole argument is organized around the dichotomy 'large' vs 'small' Sylow 2-subgroups (or rather Sylow 2-substructures, since |G| is odd: there are none, so the dichotomy is about Sylow p for the smallest p dividing |G|).
 
-Each problem has an isolated branch, a root issue, recursive child issues, and verified solution PRs. Root PRs target the corresponding problem branch. Automatic merging and manual issue closure are disabled. An open issue, running worker, or successful build is not proof acceptance.
+Do not modify `Challenge.lean` or `Solution.lean`. Those files are part of the
+trusted benchmark and fixed by the repository.
 
-Lean: `leanprover/lean4:v4.35.0-rc4`. Mathlib: `a02a63c2100af866343c74550041885f8f39f099`. Internet research is enabled. Each root must pass the full original benchmark comparator and Nanoda. The motivic-invariants problem retains all six theorem targets; the Bose-gas and Hopf problems also retain their definition holes.
+Write your solution in `Submission.lean` and any additional local modules under
+`Submission/`.
 
-| Problem | Contract branch |
-| --- | --- |
-| annals_bose_gases | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/annals_bose_gases) |
-| annals_motivic_invariants | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/annals_motivic_invariants) |
-| cdt_linearIndependent | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/cdt_linearIndependent) |
-| feit_thompson | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/feit_thompson) |
-| gorenstein_walter | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/gorenstein_walter) |
-| hopf_s6_complex_structure | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/hopf_s6_complex_structure) |
-| mandelbar_not_path_connected | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/mandelbar_not_path_connected) |
-| shafarevich_solvable_galois | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/shafarevich_solvable_galois) |
-| smooth_knot_has_quadrisecant | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/smooth_knot_has_quadrisecant) |
-| sphere_theorem_differentiable | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/sphere_theorem_differentiable) |
-| wang_zahl_kakeya_dimH | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/wang_zahl_kakeya_dimH) |
+Participants may use declarations from the existing Mathlib imports. Broadening
+the import header (especially to `import Mathlib`) can change elaboration of the
+fixed statement; any added import must leave `lake build Solution` green. Helper
+code not available through compatible imports must be inlined into the workspace.
+
+Multi-file submissions are allowed through `Submission.lean` and additional local
+modules under `Submission/`.
+
+`lake test` runs comparator for this problem. The command expects a comparator
+binary in `PATH`, or in the `COMPARATOR_BIN` environment variable.
