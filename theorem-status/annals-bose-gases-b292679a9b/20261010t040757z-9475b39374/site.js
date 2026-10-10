@@ -82,13 +82,24 @@ let lastObservation = document.body.dataset.updated;
 let liveConnected = false;
 let fetchFailed = false;
 function showFreshness() {
-  const stale = document.body.dataset.lifecycle === "running" && Date.now() - Date.parse(lastObservation) >
-    (liveConnected ? 180 : Number(document.body.dataset.staleAfter || 1800)) * 1000;
+  const expiry = document.body.dataset.activityExpires;
+  const expiredActivity = expiry && Date.now() >= Date.parse(expiry);
+  const stale = expiredActivity || (document.body.dataset.lifecycle === "running" &&
+    (!Number.isFinite(Date.parse(lastObservation)) || Date.now() - Date.parse(lastObservation) >
+    (liveConnected ? 180 : Number(document.body.dataset.staleAfter || 1800)) * 1000));
   const notice = document.getElementById("stale");
   document.body.classList.toggle("observation-expired", stale);
+  for (const assignment of document.querySelectorAll("[data-worker-assignment]")) {
+    const expired = Date.now() >= Date.parse(assignment.dataset.expires);
+    const prefix = expired ? "STALE: " : "Last seen: ";
+    // Preserve the full SVG tooltip when updating the short node badge.
+    const label = assignment.firstChild;
+    if (label?.nodeType === Node.TEXT_NODE) label.textContent = prefix + assignment.dataset.label;
+    assignment.classList.toggle("assignment-stale", expired);
+  }
   notice.hidden = !stale && !fetchFailed;
   if (!notice.hidden) {
-    notice.textContent = `${fetchFailed ? "Live feed unavailable. " : "Status feed is stale. "}` +
+    notice.textContent = `${fetchFailed ? "Live feed unavailable. " : expiredActivity ? "Worker heartbeat is stale. " : "Status feed is stale. "}` +
       `Showing the last observation from ${lastObservation}. This is not confirmation that work is still running.`;
   }
 }
@@ -153,6 +164,7 @@ function replaceSnapshot(payload) {
   document.body.dataset.lifecycle = data.lifecycle;
   document.body.dataset.updated = data.updated_at;
   document.body.dataset.staleAfter = data.stale_after_seconds || 180;
+  document.body.dataset.activityExpires = data.activity_expires_at || "";
   lastObservation = data.updated_at;
   liveConnected = true;
   document.querySelector(".snapshot small").textContent =
