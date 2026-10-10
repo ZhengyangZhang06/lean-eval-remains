@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "problem": "annals_motivic_invariants",
+  "run": "20261010T040837Z-a1e0fd6000",
+  "repository": "humanfia/lean-eval-remains",
+  "statement": "∀ (𝕜 : Type) [Field 𝕜] [NumberField 𝕜], ¬ MotivicInvariants.GenByPseudoRegularizable 𝕜 3",
+  "updated_at": "2026-10-10T04:08:39Z",
+  "lifecycle": "running",
+  "phase": "Preparing",
+  "graph_ok": true,
+  "total": 0,
+  "verified": 0,
+  "accepted": 0,
+  "pull_requests": 0,
+  "nodes": [],
+  "stale_after_seconds": 1800
+}
