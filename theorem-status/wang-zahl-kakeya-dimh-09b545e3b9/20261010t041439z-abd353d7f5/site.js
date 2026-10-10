@@ -85,6 +85,7 @@ function showFreshness() {
   const stale = document.body.dataset.lifecycle === "running" && Date.now() - Date.parse(lastObservation) >
     (liveConnected ? 180 : Number(document.body.dataset.staleAfter || 1800)) * 1000;
   const notice = document.getElementById("stale");
+  document.body.classList.toggle("observation-expired", stale);
   notice.hidden = !stale && !fetchFailed;
   if (!notice.hidden) {
     notice.textContent = `${fetchFailed ? "Live feed unavailable. " : "Status feed is stale. "}` +
@@ -155,7 +156,7 @@ function replaceSnapshot(payload) {
   lastObservation = data.updated_at;
   liveConnected = true;
   document.querySelector(".snapshot small").textContent =
-    `Run ${data.lifecycle} · live observations every 60s · checks every 30s`;
+    `Run ${data.lifecycle} · checks every 30s · publication delay may apply`;
 }
 // These fallbacks upgrade HTML emitted by an already-running older controller.
 const repoLink = document.querySelector('header nav a[href^="https://github.com/"]');
@@ -182,16 +183,16 @@ async function poll() {
     // of freshness on its own. Apply the newest successful observation only.
     const bucket = new Date().toISOString().slice(0, 16).replace(/[-:]/g, "");
     const urls = [liveURL.replace("/live.json", `/ticks/${bucket}.json`), liveURL];
-    const responses = await Promise.allSettled(urls.map(async url => {
+    let success = false;
+    await Promise.allSettled(urls.map(async url => {
       const response = await fetch(url, {cache: "no-store", credentials: "omit", signal: AbortSignal.timeout(15000)});
       if (!response.ok) throw new Error("live feed unavailable");
-      return response.json();
+      replaceSnapshot(await response.json());
+      success = true;
+      fetchFailed = false;
+      showFreshness();
     }));
-    const feeds = responses.filter(one => one.status === "fulfilled").map(one => one.value)
-      .filter(one => one.snapshot?.repository === repository && one.snapshot?.run === run)
-      .sort((a, b) => Date.parse(b.snapshot.updated_at) - Date.parse(a.snapshot.updated_at));
-    if (!feeds.length) throw new Error("live feed unavailable");
-    replaceSnapshot(feeds[0]);
+    if (!success) throw new Error("live feed unavailable");
     fetchFailed = false;
   } catch (_) {
     fetchFailed = true;
@@ -215,3 +216,4 @@ poll();
 setInterval(poll, 30000);
 setInterval(showFreshness, 10000);
 document.addEventListener("visibilitychange", () => { if (!document.hidden) poll(); });
+window.addEventListener("online", poll);

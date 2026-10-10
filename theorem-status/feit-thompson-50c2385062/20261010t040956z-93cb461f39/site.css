@@ -101,3 +101,6 @@ footer { margin-top:32px; }
   .worker-grid .worker-card { padding:12px; } .run code { margin-left:0; }
 }
 @media(prefers-reduced-motion:reduce) { * { transition:none!important; scroll-behavior:auto!important; } }
+.observation-expired .worker-active { background:#f4f4f4; border-color:#d2d7d9; }
+.observation-expired .worker-active .worker-dot { background:#87939b; box-shadow:none; }
+.observation-expired .dag-node.working { opacity:.55; }
