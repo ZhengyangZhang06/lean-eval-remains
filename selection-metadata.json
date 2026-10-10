@@ -1,0 +1,26 @@
+{
+  "id": "gorenstein_walter",
+  "title": "Gorenstein–Walter theorem (dihedral Sylow 2-subgroup)",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/gorenstein_walter/",
+  "stable_url": "problems/gorenstein_walter/",
+  "sort_index": 145,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "axiom-prover-axiom-math",
+    "max-gp-gpt-6",
+    "near-ai-w-deepseek-v4"
+  ],
+  "other_model_labels_legacy": [
+    "Axiom Prover (Axiom Math)",
+    "NEAR AI w/ DeepSeek V4",
+    "max gp (GPT-6)"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/gorenstein_walter/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}

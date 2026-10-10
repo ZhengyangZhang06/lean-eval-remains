@@ -1,23 +1,31 @@
-# LeanEval remaining-problems experiment
+# `gorenstein_walter`
 
-Eleven benchmark problems, using `github-theorem-prover` from `humanfia/math-lean-flow`, branch `feature/humanize-api-update`.
+Gorenstein–Walter theorem (dihedral Sylow 2-subgroup)
 
-[Live proving status](https://humanfia.github.io/lean-eval-remains/theorem-status/index.html) (available after the first successful Pages deployment).
+- Problem ID: `gorenstein_walter`
+- Group: `formalization-evaluation`
+- Status: `active`
+- Visible: yes
+- Statement Revision: 1
+- Tags: none
+- Submitter: Kim Morrison
+- Notes: A finite nonabelian simple group with dihedral Sylow 2-subgroups is isomorphic to PSL₂(q) for some odd prime power q ≥ 5, or to A₇. D. Gorenstein and J. H. Walter, 'The characterization of finite groups with dihedral Sylow 2-subgroups', J. Algebra 2 (1965), 85-151, 218-270, 354-393 (in three parts, ~250 pages). The first major application of the Bender method in CFSG and a template for the later Sylow-2-structure papers. No new definitions: uses Mathlib's PSL notation, DihedralGroup, alternatingGroup, GaloisField, and Sylow.
+- Source: D. Gorenstein and J. H. Walter, The characterization of finite groups with dihedral Sylow 2-subgroups, J. Algebra 2 (1965), 85-151, 218-270, 354-393. https://doi.org/10.1016/0021-8693(65)90027-X
+- Informal solution: Three-part argument. Part I (Gorenstein-Walter): if G has dihedral Sylow 2-subgroup, then either G ≅ A₇, or O(G) — the largest normal subgroup of odd order — has G/O(G) of a very specific structure: an extension of PSL₂(q) for some odd q ≥ 5 by an outer automorphism. Part II rules out the outer-automorphism case using Brauer's theory of blocks of defect one and the analysis of involution centralizers (this is where the Bender method first appears). Part III shows O(G) = 1 under the simplicity hypothesis, using the Z*-theorem and signalizer functor methods. Combined, the simple G is isomorphic to PSL₂(q) for some odd q ≥ 5 or to A₇.
 
-Each problem has an isolated branch, a root issue, recursive child issues, and verified solution PRs. Root PRs target the corresponding problem branch. Automatic merging and manual issue closure are disabled. An open issue, running worker, or successful build is not proof acceptance.
+Do not modify `Challenge.lean` or `Solution.lean`. Those files are part of the
+trusted benchmark and fixed by the repository.
 
-Lean: `leanprover/lean4:v4.35.0-rc4`. Mathlib: `a02a63c2100af866343c74550041885f8f39f099`. Internet research is enabled. Each root must pass the full original benchmark comparator and Nanoda. The motivic-invariants problem retains all six theorem targets; the Bose-gas and Hopf problems also retain their definition holes.
+Write your solution in `Submission.lean` and any additional local modules under
+`Submission/`.
 
-| Problem | Contract branch |
-| --- | --- |
-| annals_bose_gases | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/annals_bose_gases) |
-| annals_motivic_invariants | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/annals_motivic_invariants) |
-| cdt_linearIndependent | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/cdt_linearIndependent) |
-| feit_thompson | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/feit_thompson) |
-| gorenstein_walter | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/gorenstein_walter) |
-| hopf_s6_complex_structure | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/hopf_s6_complex_structure) |
-| mandelbar_not_path_connected | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/mandelbar_not_path_connected) |
-| shafarevich_solvable_galois | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/shafarevich_solvable_galois) |
-| smooth_knot_has_quadrisecant | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/smooth_knot_has_quadrisecant) |
-| sphere_theorem_differentiable | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/sphere_theorem_differentiable) |
-| wang_zahl_kakeya_dimH | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/wang_zahl_kakeya_dimH) |
+Participants may use declarations from the existing Mathlib imports. Broadening
+the import header (especially to `import Mathlib`) can change elaboration of the
+fixed statement; any added import must leave `lake build Solution` green. Helper
+code not available through compatible imports must be inlined into the workspace.
+
+Multi-file submissions are allowed through `Submission.lean` and additional local
+modules under `Submission/`.
+
+`lake test` runs comparator for this problem. The command expects a comparator
+binary in `PATH`, or in the `COMPARATOR_BIN` environment variable.
