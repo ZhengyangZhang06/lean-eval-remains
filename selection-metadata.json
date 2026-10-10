@@ -1,0 +1,22 @@
+{
+  "id": "shafarevich_solvable_galois",
+  "title": "Shafarevich's theorem on solvable Galois groups",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/shafarevich_solvable_galois/",
+  "stable_url": "problems/shafarevich_solvable_galois/",
+  "sort_index": 266,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "max-gp-gpt-6"
+  ],
+  "other_model_labels_legacy": [
+    "max gp (GPT-6)"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/shafarevich_solvable_galois/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}
