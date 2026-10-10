@@ -1,8 +1,10 @@
 # LeanEval remaining-problems experiment
 
-Eleven benchmark problems, using `github-theorem-prover` from `humanfia/math-lean-flow`, branch `feature/humanize-api-update`.
+Eleven benchmark problems, using `github-theorem-prover` from `humanfia/math-lean-flow`, branch `feature/humanize-api-update`, deployed revision [`6feb940`](https://github.com/humanfia/math-lean-flow/commit/6feb940fb9fde23dcd09f5686514cb4d6be913f2).
 
 [Live proving status](https://humanfia.github.io/lean-eval-remains/theorem-status/index.html) (available after the first successful Pages deployment).
+
+Hosting status (2026-10-10): GitHub currently rejects Pages for this private repository under its account plan (HTTP 422). No live site is claimed; generated website source is retained in `gh-pages`. GitHub proof issues and PRs do not require Pages to be available.
 
 Each problem has an isolated branch, a root issue, recursive child issues, and verified solution PRs. Root PRs target the corresponding problem branch. Automatic merging and manual issue closure are disabled. An open issue, running worker, or successful build is not proof acceptance.
 
