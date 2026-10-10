@@ -2,9 +2,11 @@
 
 Eleven benchmark problems, using `github-theorem-prover` from `humanfia/math-lean-flow`, branch `feature/humanize-api-update`, deployed revision [`6feb940`](https://github.com/humanfia/math-lean-flow/commit/6feb940fb9fde23dcd09f5686514cb4d6be913f2).
 
-[Live proving status](https://humanfia.github.io/lean-eval-remains/theorem-status/index.html) (available after the first successful Pages deployment).
+[Live proving-status website](https://zhengyangzhang06.github.io/lean-eval-remains/theorem-status/).
 
-Hosting status (2026-10-10): GitHub currently rejects Pages for this private repository under its account plan (HTTP 422). No live site is claimed; generated website source is retained in `gh-pages`. GitHub proof issues and PRs do not require Pages to be available.
+This is a Git copy of the original experiment, with all 13 source branches copied on 2026-10-10. It is not a GitHub repository transfer: existing issues, PRs and active proof workers remain in [humanfia/lean-eval-remains](https://github.com/humanfia/lean-eval-remains). Their original links are preserved; opening those private records requires repository access. The copied contract branches are frozen snapshots, not a claim of continuous proof-branch mirroring.
+
+The website observes all 11 active runs without changing their proof records. Live observations publish repeatedly to `status-live` (60-second waits between cycles, plus publication time); Pages snapshots publish every ten minutes or later if the preceding cycle is still publishing. The browser refreshes automatically and warns when observations are stale. The reusable publisher is maintained in the flow repository, revision [`1c377c7`](https://github.com/humanfia/math-lean-flow/commit/1c377c7). Publication is not proof acceptance.
 
 Each problem has an isolated branch, a root issue, recursive child issues, and verified solution PRs. Root PRs target the corresponding problem branch. Automatic merging and manual issue closure are disabled. An open issue, running worker, or successful build is not proof acceptance.
 
@@ -12,14 +14,14 @@ Lean: `leanprover/lean4:v4.35.0-rc4`. Mathlib: `a02a63c2100af866343c74550041885f
 
 | Problem | Contract branch |
 | --- | --- |
-| annals_bose_gases | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/annals_bose_gases) |
-| annals_motivic_invariants | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/annals_motivic_invariants) |
-| cdt_linearIndependent | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/cdt_linearIndependent) |
-| feit_thompson | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/feit_thompson) |
-| gorenstein_walter | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/gorenstein_walter) |
-| hopf_s6_complex_structure | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/hopf_s6_complex_structure) |
-| mandelbar_not_path_connected | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/mandelbar_not_path_connected) |
-| shafarevich_solvable_galois | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/shafarevich_solvable_galois) |
-| smooth_knot_has_quadrisecant | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/smooth_knot_has_quadrisecant) |
-| sphere_theorem_differentiable | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/sphere_theorem_differentiable) |
-| wang_zahl_kakeya_dimH | [frozen problem](https://github.com/humanfia/lean-eval-remains/tree/problems/wang_zahl_kakeya_dimH) |
+| annals_bose_gases | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/annals_bose_gases) |
+| annals_motivic_invariants | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/annals_motivic_invariants) |
+| cdt_linearIndependent | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/cdt_linearIndependent) |
+| feit_thompson | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/feit_thompson) |
+| gorenstein_walter | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/gorenstein_walter) |
+| hopf_s6_complex_structure | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/hopf_s6_complex_structure) |
+| mandelbar_not_path_connected | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/mandelbar_not_path_connected) |
+| shafarevich_solvable_galois | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/shafarevich_solvable_galois) |
+| smooth_knot_has_quadrisecant | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/smooth_knot_has_quadrisecant) |
+| sphere_theorem_differentiable | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/sphere_theorem_differentiable) |
+| wang_zahl_kakeya_dimH | [frozen problem](https://github.com/ZhengyangZhang06/lean-eval-remains/tree/problems/wang_zahl_kakeya_dimH) |
