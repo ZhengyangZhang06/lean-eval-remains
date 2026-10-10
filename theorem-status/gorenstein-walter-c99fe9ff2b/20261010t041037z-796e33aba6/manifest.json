@@ -1,9 +1,9 @@
 {
   "problem": "gorenstein_walter",
   "run": "20261010T041037Z-796e33aba6",
-  "phase": "Preparing",
+  "phase": "In progress",
   "verified": 0,
-  "total": 0,
-  "updated_at": "2026-10-10T04:10:40Z",
+  "total": 1,
+  "updated_at": "2026-10-10T04:20:46Z",
   "path": "theorem-status/gorenstein-walter-c99fe9ff2b/20261010t041037z-796e33aba6"
 }
