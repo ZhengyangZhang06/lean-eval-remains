@@ -1,9 +1,9 @@
 {
   "problem": "feit_thompson",
   "run": "20261010T040956Z-93cb461f39",
-  "phase": "Preparing",
+  "phase": "In progress",
   "verified": 0,
-  "total": 0,
-  "updated_at": "2026-10-10T04:09:58Z",
+  "total": 1,
+  "updated_at": "2026-10-10T04:20:04Z",
   "path": "theorem-status/feit-thompson-50c2385062/20261010t040956z-93cb461f39"
 }
