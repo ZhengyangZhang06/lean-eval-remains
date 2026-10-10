@@ -1,0 +1,24 @@
+{
+  "id": "smooth_knot_has_quadrisecant",
+  "title": "Pannwitz–Kuperberg quadrisecant theorem",
+  "status": "active",
+  "statement_revision": 1,
+  "tags": [],
+  "sets": [
+    "v1"
+  ],
+  "url": "problems/smooth_knot_has_quadrisecant/",
+  "stable_url": "problems/smooth_knot_has_quadrisecant/",
+  "sort_index": 269,
+  "group": "formalization-evaluation",
+  "other_model_ids": [
+    "axiom-prover-axiom-math",
+    "near-ai-w-deepseek-v4"
+  ],
+  "other_model_labels_legacy": [
+    "Axiom Prover (Axiom Math)",
+    "NEAR AI w/ DeepSeek V4"
+  ],
+  "problem_url": "https://leanprover.github.io/lean-eval-leaderboard/problems/smooth_knot_has_quadrisecant/",
+  "benchmark_commit": "38361be884302c7edce1908c4aef8296eb2cb27e"
+}

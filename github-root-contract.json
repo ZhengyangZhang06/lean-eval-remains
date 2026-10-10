@@ -1,0 +1,4 @@
+{
+  "name": "Submission.smooth_knot_has_quadrisecant",
+  "statement": "∀ {r : ℝ → LeanEval.KnotTheory.Quadrisecant.Space}, LeanEval.KnotTheory.Quadrisecant.IsSmoothKnot r → ¬ LeanEval.KnotTheory.Quadrisecant.IsUnknotted r → LeanEval.KnotTheory.Quadrisecant.HasQuadrisecant r"
+}
