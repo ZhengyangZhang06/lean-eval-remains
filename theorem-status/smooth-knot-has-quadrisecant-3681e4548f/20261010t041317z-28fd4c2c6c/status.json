@@ -4,7 +4,7 @@
   "run": "20261010T041317Z-28fd4c2c6c",
   "repository": "humanfia/lean-eval-remains",
   "statement": "∀ {r : ℝ → LeanEval.KnotTheory.Quadrisecant.Space}, LeanEval.KnotTheory.Quadrisecant.IsSmoothKnot r → ¬ LeanEval.KnotTheory.Quadrisecant.IsUnknotted r → LeanEval.KnotTheory.Quadrisecant.HasQuadrisecant r",
-  "updated_at": "2026-10-10T04:33:38Z",
+  "updated_at": "2026-10-10T04:43:53Z",
   "lifecycle": "running",
   "phase": "In progress",
   "graph_ok": true,
