@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "problem": "mandelbar_not_path_connected",
+  "run": "20261010T041157Z-1f409c3b46",
+  "repository": "humanfia/lean-eval-remains",
+  "statement": "¬ IsPathConnected LeanEval.ComplexAnalysis.Mandelbar",
+  "updated_at": "2026-10-10T04:12:00Z",
+  "lifecycle": "running",
+  "phase": "Preparing",
+  "graph_ok": true,
+  "total": 0,
+  "verified": 0,
+  "accepted": 0,
+  "pull_requests": 0,
+  "nodes": [],
+  "stale_after_seconds": 1800
+}
