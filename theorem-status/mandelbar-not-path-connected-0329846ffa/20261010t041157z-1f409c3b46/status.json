@@ -4,7 +4,7 @@
   "run": "20261010T041157Z-1f409c3b46",
   "repository": "humanfia/lean-eval-remains",
   "statement": "¬ IsPathConnected LeanEval.ComplexAnalysis.Mandelbar",
-  "updated_at": "2026-10-10T04:22:06Z",
+  "updated_at": "2026-10-10T04:32:19Z",
   "lifecycle": "running",
   "phase": "In progress",
   "graph_ok": true,
