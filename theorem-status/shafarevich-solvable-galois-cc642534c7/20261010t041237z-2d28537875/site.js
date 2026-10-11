@@ -48,9 +48,11 @@ function applyFilter() {
   let visible = 0;
   for (const row of rows) {
     const active = row.dataset.active === "true";
-    const verified = row.dataset.verified === "true";
+    const accepted = row.dataset.accepted === "true";
+    const merged = row.dataset.merged === "true";
     const selected = filter.value === "all" || (active &&
-      (filter.value === "active" || (filter.value === "verified" ? verified : !verified)));
+      (filter.value === "active" || (filter.value === "accepted" ? accepted :
+        filter.value === "merged" ? merged : !accepted)));
     row.hidden = !selected || !row.dataset.search.includes(query);
     if (!row.hidden) visible++;
   }
@@ -59,6 +61,13 @@ function applyFilter() {
 function bindControls() {
   search = document.getElementById("search");
   filter = document.getElementById("filter");
+  // Transitional wire alias keeps already-open v1 clients' acceptance filter
+  // truthful. New clients expose the v2 names and root-only merge filter.
+  const legacyAccepted = filter.querySelector('option[value="verified"]');
+  if (legacyAccepted) legacyAccepted.value = "accepted";
+  if (!filter.querySelector('option[value="merged"]')) {
+    filter.add(new Option("Merged roots", "merged"));
+  }
   rows = [...document.querySelectorAll("tbody tr[data-search]")];
   search.addEventListener("input", applyFilter);
   filter.addEventListener("change", applyFilter);
@@ -105,11 +114,17 @@ function showFreshness() {
 }
 function replaceSnapshot(payload) {
   const data = payload.snapshot;
-  if (!data || data.repository !== repository || data.run !== run ||
-      !Number.isFinite(Date.parse(data.updated_at))) throw new Error("wrong status feed");
+  if (!data || data.schema_version !== 2 || data.repository !== repository || data.run !== run ||
+      data.problem !== problem || !Number.isFinite(Date.parse(data.updated_at)) ||
+      Date.parse(data.updated_at) > Date.now() + 30000) throw new Error("wrong status feed");
   if (Date.parse(data.updated_at) < Date.parse(lastObservation)) return;
   if (data.updated_at === lastObservation && liveConnected) return;
   const parsed = new DOMParser().parseFromString(payload.page, "text/html");
+  if (parsed.body.dataset.statusSchema !== "2" || parsed.body.dataset.repository !== repository ||
+      parsed.body.dataset.run !== run || parsed.body.dataset.problem !== problem ||
+      parsed.body.dataset.updated !== data.updated_at) {
+    throw new Error("incompatible status document");
+  }
   // Live HTML may arrive in a tab that still has an older stylesheet.
   const stylesheet = parsed.querySelector('link[rel="stylesheet"]')?.getAttribute("href");
   const currentStyle = document.querySelector('link[rel="stylesheet"]');
@@ -174,6 +189,7 @@ function replaceSnapshot(payload) {
 const repoLink = document.querySelector('header nav a[href^="https://github.com/"]');
 const repository = document.body.dataset.repository || repoLink?.getAttribute("href").replace("https://github.com/", "");
 const run = document.body.dataset.run || document.querySelector(".run code")?.textContent;
+const problem = document.body.dataset.problem;
 const match = location.pathname.match(/(theorem-status\/[a-z0-9-]+\/[a-z0-9-]+)(?:\/|\/index.html)?$/);
 const liveURL = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository || "") && match ?
   `https://raw.githubusercontent.com/${repository}/status-live/${match[1]}/live.json` : null;
@@ -214,7 +230,11 @@ async function poll() {
         const response = await fetch(`index.html?t=${Date.now()}`, {cache: "no-store", signal: AbortSignal.timeout(10000)});
         const text = await response.text();
         const parsed = new DOMParser().parseFromString(text, "text/html");
-        if (response.ok && Date.parse(parsed.body.dataset.updated) > Date.parse(lastObservation) &&
+        if (response.ok && parsed.body.dataset.statusSchema === "2" &&
+            parsed.body.dataset.repository === repository && parsed.body.dataset.run === run &&
+            parsed.body.dataset.problem === problem &&
+            Date.parse(parsed.body.dataset.updated) <= Date.now() + 30000 &&
+            Date.parse(parsed.body.dataset.updated) > Date.parse(lastObservation) &&
             !search.value && !document.querySelector("details[open]")) location.reload();
       } catch (_) { /* Retain the last readable snapshot and show its age. */ }
     }
