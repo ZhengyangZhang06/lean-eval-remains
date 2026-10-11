@@ -90,6 +90,31 @@ window.addEventListener("hashchange", revealTarget);
 let lastObservation = document.body.dataset.updated;
 let liveConnected = false;
 let fetchFailed = false;
+let feedState = "connecting", lastAttempt = "", lastFetch = "";
+function showFeedStatus() {
+  let notice = document.getElementById("feed-status");
+  if (!notice) {
+    notice = document.createElement("p"); notice.id = "feed-status";
+    notice.setAttribute("role", "status"); notice.setAttribute("aria-live", "polite");
+    document.getElementById("stale").before(notice);
+  }
+  let retry = document.getElementById("retry-feed");
+  if (!retry) {
+    retry = document.createElement("button"); retry.id = "retry-feed";
+    retry.type = "button"; retry.textContent = "Retry live feed"; notice.after(retry);
+  }
+  retry.onclick = poll; retry.disabled = fetching;
+  const age = Date.now() - Date.parse(lastObservation);
+  const current = Number.isFinite(age) && age >= -30000 && age <= 180000;
+  notice.dataset.state = feedState === "reachable" ? (current ? "fresh" : "stale") : feedState;
+  const state = feedState === "connecting" ? "Connecting to live status; showing the archived observation." :
+    feedState === "unreachable" ? "Live feed unreachable or invalid; retaining the last observation." :
+    current ? "Live feed reachable; displayed observation is within 180 seconds." :
+    "Live feed reachable, but the displayed observation is stale.";
+  notice.textContent = `${state} Displayed observation: ${lastObservation}.` +
+    (lastAttempt ? ` Last check started: ${lastAttempt}.` : "") +
+    (lastFetch ? ` Last successful feed response: ${lastFetch} (not an observation time).` : "");
+}
 function showFreshness() {
   const expiry = document.body.dataset.activityExpires;
   const expiredActivity = expiry && Date.now() >= Date.parse(expiry);
@@ -111,6 +136,7 @@ function showFreshness() {
     notice.textContent = `${fetchFailed ? "Live feed unavailable. " : expiredActivity ? "Worker heartbeat is stale. " : "Status feed is stale. "}` +
       `Showing the last observation from ${lastObservation}. This is not confirmation that work is still running.`;
   }
+  showFeedStatus();
 }
 function replaceSnapshot(payload) {
   const data = payload.snapshot;
@@ -203,14 +229,16 @@ let fetching = false;
 async function poll() {
   if (fetching) return;
   fetching = true;
+  lastAttempt = new Date(Date.now()).toISOString();
+  showFreshness();
   try {
     if (!liveURL) throw new Error("no live endpoint");
     // GitHub's CDN ignores query-string cache busters for mutable raw files.
-    // The publisher prepopulates minute paths, so changing the path every minute
-    // yields a fresh cache key. The canonical file is a fallback, never evidence
-    // of freshness on its own. Apply the newest successful observation only.
-    const bucket = new Date().toISOString().slice(0, 16).replace(/[-:]/g, "");
-    const urls = [liveURL.replace("/live.json", `/ticks/${bucket}.json`), liveURL];
+    // Match the overview's recent buckets when a current path has a cached 404.
+    // Never request future paths. HTTP success is not evidence of freshness.
+    const stamp = Date.now();
+    const buckets = [0, 60000, 120000].map(offset => new Date(stamp - offset).toISOString().slice(0, 16).replace(/[-:]/g, ""));
+    const urls = [...buckets.map(bucket => liveURL.replace("/live.json", `/ticks/${bucket}.json`)), liveURL];
     let success = false;
     await Promise.allSettled(urls.map(async url => {
       const response = await fetch(url, {cache: "no-store", credentials: "omit", signal: AbortSignal.timeout(15000)});
@@ -218,12 +246,15 @@ async function poll() {
       replaceSnapshot(await response.json());
       success = true;
       fetchFailed = false;
+      feedState = "reachable"; lastFetch = new Date(Date.now()).toISOString();
       showFreshness();
     }));
     if (!success) throw new Error("live feed unavailable");
     fetchFailed = false;
   } catch (_) {
     fetchFailed = true;
+    feedState = "unreachable";
+    showFreshness();
     // Runs without a sidecar retain their ordinary Pages snapshot updates.
     if (!liveConnected) {
       try {
